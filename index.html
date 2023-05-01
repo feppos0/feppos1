@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+
     <title>Felix</title>
     <style>
         .p {
@@ -38,7 +40,7 @@
         .accordion-item {
             border: 0px solid #ccc;
             background-color: #ffffff;
-            width: 45%;
+            width: 100%;
             margin: 0 auto;
             font-size: 18px;
             font-family: arial;
@@ -61,7 +63,7 @@
 
         .accordion-header {
             background-color: #ffffff;
-            padding: 1%;
+            padding: 0;
             width: 70%;
             margin: 0 auto;
             color: #2F7C99;
@@ -71,8 +73,6 @@
             font-weight: 700;
             cursor: pointer;
             position: relative;
-            padding-left: calc(10px + 10px); /* add calc() to subtract arrow width from padding-right */
-            padding-right: calc(25px + 10px); /* add padding-right for arrow and 10px margin */
         }
 
             .accordion-header:hover {
@@ -102,7 +102,6 @@
             border-bottom: 7px solid transparent;
             border-left: 11px solid #48A0C0;
             transition: transform 0.4s ease;
-            padding-right: %;
         }
 
         /* Rotate the arrow when the accordion is active */
@@ -115,30 +114,46 @@
             overflow: hidden;
             transition: max-height 0.5s ease;
             margin: 0 auto;
-            padding: 0px 0px;
-            padding-left: 16%;
+            padding-left: 12%;
+            padding-right: 12%;
             background-color: #ffffff;
         }
+
         @media (max-width: 768px) {
 
             .accordion-header {
-                font-size: 24px;
+                font-size: 30px;
                 padding-left: calc(5px + 10px);
                 padding-right: calc(20px + 10px);
                 width: 100%;
+                margin-top: 20px;
             }
 
             .accordion-item {
                 width: 100%;
+
             }
 
             .accordion-arrow {
-                right: 5%;
+                right: 15%;
                 padding-right: 0;
+            }
+            .active .accordion-arrow {
+                position: absolute;
+                top: 56%;
+                right: 15%; /* offset the added padding-right */
+                width: 0;
+                height: 0;
+                margin-top: -10px;
+                border-top: 7px solid transparent;
+                border-bottom: 7px solid transparent;
+                border-left: 11px solid #BAC7CC;
             }
 
             .accordion-content {
-                padding-left: 10%;
+                padding-left: 5%;
+                align-items: center;
+                padding-right: 5%;
             }
         }
     </style>
@@ -146,23 +161,43 @@
 <body>
     <div class="accordion">
         <div class="accordion-item">
-            <div class="accordion-header"> hi, i'm felix <div class="accordion-arrow"></div></div>
+            <div class="accordion-header"> hi, i'm felix &#128075; <div class="accordion-arrow"></div></div>
             <div class="accordion-content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-            </div>
+                <p>
+                    My name is <strong><font color="#2F7C99">Felix</font></strong> and I have an idea. A great idea actually – I want to become a front end developer. But first, I need to understand the basics a bit more.
+                    <br /><br />
+
+                    The last 2 years I've worked with marketing producing graphical content. Before that, I graduated with a  bachelor in both advertising and psychology.
+                    While working closely with our web developers at my current job, an old passion of mine appeared – the interest of code and problem solving
+                    Working within marketing often means a tight schedule, and the time for "pixel perfect" is not always there for the developers. Understandable, but I know I should be able to help out, If I just knew a bit of coding..
+                    It's really fun (!) and I really think my background as a marketer would be great for this role.
+                    <br /> <br />
+                    <div style="overflow:auto;">
+                        <div style="float:right;width:150px;margin-left:20px;">
+                            <img src="felix.png" width="100%" />
+                        </div>
+                        I always love to challenge myself – and this application is a wild example of that. I wanted to try something harder than start with pre-built codes, and although this site has a lot to improve, <strong>I hope I can do that one day soon.</strong>
+                        
+                    </div>
+</div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">why this course? <div class="accordion-arrow"></div></div>
+            <div class="accordion-content">
+                <p>
+                    Ever since I was a child, I've been fascinated by problem-solving. As I've grown older, my interest has evolved into a passion for web development and I’m definitely ready to take my first step into learning more about coding. The last 2 years I’ve worked with marketing and mostly I’ve produced graphical content.
+                   <br /><br /> I’ve worked close to our web developers in different projects and I see a huge opportunity for me to bridge the gap between development and content production. This course seems perfect for me to learn more, so I can continue to advance and learn more with a good understanding. I really think I have found an interest I would like to work with, and combining my graphical and marketing experience would be great.
+                </p>            </div>
         </div>
 
         <div class="accordion-item">
-            <div class="accordion-header">why code <div class="accordion-arrow"></div></div>
+            <div class="accordion-header"> felix + frontend = true <div class="accordion-arrow"></div></div>
             <div class="accordion-content">
-                <p>Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci.</p>
-            </div>
-        </div>
+                <p>
+                    I love web development and have a background in graphic design, so I think I would be a great fit for this position. <br /><br />One thing that sets me apart is my eagerness to learn and my determination not to give up when I encounter a problem.
 
-        <div class="accordion-item">
-            <div class="accordion-header">and that's because <div class="accordion-arrow"></div></div>
-            <div class="accordion-content">
-                <p>Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.</p>
+                    I'm used to try to find creative solutions to design challenges, and I know the web development is such a part of that. If I know more about do's and dont's in code, I think the efficiency will increase a lot working with code and design.
+                </p><strong><center>Hope to hear from you - have a good day!</center></strong>
             </div>
         </div>
     </div>
@@ -248,7 +283,7 @@
                 <p><a href="mailto:felix@adlen.nu">felix@adlen.nu</a></p>
             </div>
             <div class="column">
-                <p>Felix</p>
+                <p>Felix Adlén</p>
             </div>
 
         </div>
