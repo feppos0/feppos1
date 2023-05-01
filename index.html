@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Felix</title>
+    <style>
+     .p {
+    color: #05445e;
+  }
+  
+  .accordion {
+    background-color: #ffffff;
+     width: 100%;
+    margin: 0 auto;
+  align-items: center;
+  }
+    
+
+        .active .accordion-header {
+    color: #BAC7CC;
+  }
+        .active .accordion-header:hover {
+    color: #BAC7CC;
+  }
+    
+.active .accordion-arrow {
+    position: absolute;
+  top: 56%;
+  right: 0%; /* offset the added padding-right */
+  width: 0;
+  height: 0;
+  margin-top: -10px;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid #BAC7CC;
+  }      
+      
+  .accordion-item {
+    border: 0px solid #ccc;
+    background-color: #ffffff;
+    width: 45%;
+    margin: 0 auto;
+      font-size: 18px;
+    font-family: arial;
+    font-weight: 500;
+    text-align: left;
+    line-height: 1.5;
+  }
+      .active .accordion-arrow:hover {
+    position: absolute;
+  top: 56%;
+  right: 0%; /* offset the added padding-right */
+  width: 0;
+  height: 0;
+  margin-top: -10px;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid #BAC7CC;
+  }     
+  
+  .accordion-header {
+  background-color: #ffffff;
+  padding: 1%;
+  width: 70%;
+  margin: 0 auto;
+  color: #2F7C99;
+  text-align: center;
+  font-size: 34px;
+  font-family: arial;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  padding-left: calc(10px + 10px); /* add calc() to subtract arrow width from padding-right */
+  padding-right: calc(25px + 10px); /* add padding-right for arrow and 10px margin */
+}
+  
+.accordion-header:hover {
+  background-color: transparent;
+  color: #64BBDB;
+}
+  
+      .accordion-header:hover .accordion-arrow {
+  /* Your hover styles here */
+  border-left-color: #FFC107;
+    }
+        .active .accordion-header:hover .accordion-arrow {
+  /* Your hover styles here */
+  border-left-color: #BAC7CC;
+    }
+      
+  /* Add a class for the arrow and define its properties */
+  .accordion-arrow {
+  position: absolute;
+  top: 56%;
+  right: 0%; /* offset the added padding-right */
+  width: 0;
+  height: 0;
+  margin-top: -10px;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid #48A0C0;
+  transition: transform 0.4s ease;
+    padding-right: %;
+}
+ 
+  /* Rotate the arrow when the accordion is active */
+  .accordion-item.active .accordion-arrow {
+    transform: rotate(90deg);
+   
+  }
+     
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    margin: 0 auto;
+    padding: 0px 0px;
+    padding-left: 16%;
+    background-color: #ffffff;
+  }
+ 
+      
+  /* Media queries for smaller screens */
+  @media only screen and (max-width: 768px) {
+    .accordion {
+      width: 95%; /* set full width */
+    }
+    
+    .accordion-header {
+      font-size: 20px; /* decrease font size */
+      padding: 25px; /* decrease padding */
+    }
+    
+
+    .accordion-content {
+      padding: 0px 10px;
+      /* decrease padding */
+    }
+  }
+
+  /* Media queries for even smaller screens */
+  @media only screen and (max-width: 480px) {
+    .accordion-header {
+      font-size: 18px; /* decrease font size further */
+      padding: 20px; /* decrease padding further */
+    }
+
+    .accordion-content {
+      padding: 0px 10px; /* decrease padding further */
+    }
+  }
+    </style>
+  </head>
+  <body>
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-header"> hi, i'm felix <div class="accordion-arrow"></div></div> 
+        <div class="accordion-content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <div class="accordion-header">why code <div class="accordion-arrow"></div></div>
+        <div class="accordion-content">
+          <p>Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci.</p>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <div class="accordion-header">and that's because <div class="accordion-arrow"></div></div>
+        <div class="accordion-content" >
+          <p>Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.</p>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      var accordionItems = document.querySelectorAll('.accordion-item');
+
+      accordionItems.forEach(function(item) {
+        var header = item.querySelector('.accordion-header');
+        var content = item.querySelector('.accordion-content');
+        
+        header.addEventListener('click', function() {
+          // close all other accordions
+          accordionItems.forEach(function(otherItem) {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+              otherItem.classList.remove('active');
+              otherItem.querySelector('.accordion-content').style.maxHeight = '0';
+            }
+          });
+          
+          // toggle active class and maxHeight
+          item.classList.toggle('active');
+          if (item.classList.contains('active')) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+          } else {
+            content.style.maxHeight = '0';
+          }
+        });
+      });
+      
+    </script>
+  </body>
+</html>
