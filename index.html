@@ -5,6 +5,49 @@
 
     <title>Felix</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            padding-top: 8%;
+        }
+
+        main {
+            /* Set the main content to take up the remaining height of the page */
+            min-height: calc(100vh - 350px);
+        }
+
+        footer {
+            /* Set the footer to be sticky at the bottom of the page */
+            position: sticky;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif; /* set font to Arial */
+        }
+
+        .footer-content {
+            /* Center the content within the footer */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+            .footer-content a {
+                color: black; /* set link color to black */
+                font-weight: bold;
+                text-decoration: none; /* set link font to bold */
+            }
+
+
+        .column {
+            /* Set the width of each column to be 1/3 of the footer width */
+            width: calc(100% / 2);
+            text-align: center;
+        }
+   
         .p {
             color: #05445e;
         }
@@ -114,20 +157,25 @@
             overflow: hidden;
             transition: max-height 0.5s ease;
             margin: 0 auto;
-            padding-left: 12%;
-            padding-right: 12%;
+            padding-left: 14%;
+            padding-right: 14%;
             background-color: #ffffff;
         }
 
-        @media (max-width: 768px) {
-
+        @media only screen and (max-width: 768px) {
             .accordion-header {
-                font-size: 30px;
-                padding-left: calc(5px + 10px);
-                padding-right: calc(20px + 10px);
-                width: 100%;
-                margin-top: 20px;
-            }
+            background-color: #ffffff;
+            padding: 0;
+            width: 100%;
+            margin: 0 auto;
+            color: #2F7C99;
+            text-align: center;
+            font-size: 100px;
+            font-family: arial;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+        }
 
             .accordion-item {
                 width: 100%;
@@ -168,7 +216,7 @@
                     <br /><br />
 
                     The last 2 years I've worked with marketing producing graphical content. Before that, I graduated with a  bachelor in both advertising and psychology.
-                    While working closely with our web developers at my current job, an old passion of mine appeared – the interest of code and problem solving.
+                    While working closely with our web developers at my current job, an old passion of mine appeared – the interest of code and problem solving
                     Working within marketing often means a tight schedule, and the time for "pixel perfect" is not always there for the developers. Understandable, but I know I should be able to help out, If I just knew a bit of coding..
                     It's really fun (!) and I really think my background as a marketer would be great for this role.
                     <br /> <br />
@@ -177,8 +225,8 @@
                             <img src="felix.png" width="100%" />
                         </div>
                         I always love to challenge myself – and this application is a wild example of that. I wanted to try something harder than start with pre-built codes, and although this site has a lot to improve, <strong>I hope I can do that one day soon.</strong>
-                        
-                </div></div>
+                        </div>
+                    </div>
 </div>
 
         <div class="accordion-item">
@@ -228,51 +276,6 @@
         });</script>
 </body>
 <body>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            padding-top: 8%;
-        }
-
-        main {
-            /* Set the main content to take up the remaining height of the page */
-            min-height: calc(100vh - 350px);
-        }
-
-        footer {
-            /* Set the footer to be sticky at the bottom of the page */
-            position: sticky;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50px;
-            background-color: #f2f2f2;
-            font-family: Arial, sans-serif; /* set font to Arial */
-        }
-
-        .footer-content {
-            /* Center the content within the footer */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-
-            .footer-content a {
-                color: black; /* set link color to black */
-                font-weight: bold;
-                text-decoration: none; /* set link font to bold */
-            }
-
-
-        .column {
-            /* Set the width of each column to be 1/3 of the footer width */
-            width: calc(100% / 2);
-            text-align: center;
-        }
-   
-    </style>
     <main>
         <!-- Your website content goes here -->
     </main>
