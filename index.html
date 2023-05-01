@@ -124,14 +124,21 @@
         /* Media queries for smaller screens */
         @media only screen and (max-width: 768px) {
             .accordion {
-                width: 95%; /* set full width */
+                width: 100%; /* set full width */
             }
 
             .accordion-header {
+                font-size: 38px; /* decrease font size */
+            }
+            .accordion-item {
                 font-size: 20px; /* decrease font size */
-                padding: 25px; /* decrease padding */
+                width: 95%;
+                padding-left: 20px;
             }
 
+            .accordion-content {
+               margin-left
+            }
 
             .accordion-content {
                 padding: 0px 10px;
@@ -142,8 +149,8 @@
         /* Media queries for even smaller screens */
         @media only screen and (max-width: 480px) {
             .accordion-header {
-                font-size: 18px; /* decrease font size further */
-                padding: 20px; /* decrease padding further */
+                font-size:18px; /* decrease font size further */
+                padding: 10px; /* decrease padding further */
             }
 
             .accordion-content {
@@ -211,7 +218,7 @@
 
         main {
             /* Set the main content to take up the remaining height of the page */
-            min-height: calc(100vh - 50px);
+            min-height: calc(100vh - 350px);
         }
 
         footer {
@@ -242,14 +249,16 @@
 
         .column {
             /* Set the width of each column to be 1/3 of the footer width */
-            width: calc(100% / 3);
+            width: calc(100% / 2);
             text-align: center;
         }
+   
     </style>
     <main>
         <!-- Your website content goes here -->
     </main>
     <footer>
+     
         <div class="footer-content">
             <div class="column">
                 <p><a href="mailto:felix@adlen.nu">felix@adlen.nu</a></p>
@@ -257,15 +266,10 @@
             <div class="column">
                 <p>Felix Adlén</p>
             </div>
+
         </div>
     </footer>
 
-    <!-- page content goes here -->
-    <div class="footer">
-        <div class="footer-content">
-            <p>Column 1 text</p>
-            <p>Column 2 text</p>
-        </div>
-    </div>
+ 
 </body>
 </html>
