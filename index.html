@@ -5,25 +5,33 @@
     <meta charset="UTF-8">
 
     <title>Felix</title>
+
     <style>
         body {
             margin: 0;
             padding: 0;
-            padding-top: 8%;
         }
 
-        main {
-            /* Set the main content to take up the remaining height of the page */
-            min-height: calc(100vh - 350px);
+        html, body {
+            height: 100%;
         }
 
+            body > footer {
+                position: sticky;
+            }
+        .wrapper {
+            overflow-y: scroll;
+            height: calc(100% - 50px);
+                
+             }
         footer {
             /* Set the footer to be sticky at the bottom of the page */
-            position: sticky;
+            position: static;
             bottom: 0;
             left: 0;
-            width: 100%;
+            width: 100%;               
             height: 50px;
+            min-height: 50px;
             background-color: #f2f2f2;
             font-family: Arial, sans-serif; /* set font to Arial */
         }
@@ -58,6 +66,9 @@
             width: 100%;
             margin: 0 auto;
             align-items: center;
+            padding-top: 8%;
+            padding-bottom: 8%;
+            
         }
 
 
@@ -84,14 +95,15 @@
         .accordion-item {
             border: 0px solid #ccc;
             background-color: #ffffff;
-            width: 100%;
+            width: 90%;
             margin: 0 auto;
-            font-size: 18px;
+                       font-size: 18px;
             font-family: arial;
             font-weight: 500;
             text-align: left;
+
             line-height: 1.5;
-        }
+                    }
 
         .active .accordion-arrow:hover {
             position: absolute;
@@ -139,7 +151,7 @@
             position: absolute;
             top: 56%;
             right: 0%; /* offset the added padding-right */
-            width: 0;
+                        width: 0;
             height: 0;
             margin-top: -10px;
             border-top: 7px solid transparent;
@@ -158,59 +170,65 @@
             overflow: hidden;
             transition: max-height 0.5s ease;
             margin: 0 auto;
+            margin-bottom: 10px;
             padding-left: 14%;
             padding-right: 14%;
+          
             background-color: #ffffff;
         }
 
-        @media only screen and (max-width: 768px) {
-            .body {
-                padding-top: 8%;
-            }
-            .accordion-header {
-                background-color: #ffffff;
-                padding: 0;
-                width: 100%;
-                margin: 0 auto;
-                margin-top: 5%;
-                color: #2F7C99;
-                text-align: center;
-                font-size: 26px;
-                font-family: arial;
-                font-weight: 700;
-                cursor: pointer;
-                position: relative;
-            }
+     
+
+            @media only screen and (max-width: 768px) {
+                .body {
+                    padding-top: 8%;
+                }
+
+                .accordion-header {
+                    background-color: #ffffff;
+                    padding: 0;
+                    width: 100%;
+                    margin: 0 auto;
+                    margin-top: 5%;
+                    color: #2F7C99;
+                    text-align: center;
+                    font-size: 26px;
+                    font-family: arial;
+                    font-weight: 700;
+                    cursor: pointer;
+                    position: relative;
+                }
 
 
-    
 
-            .accordion-arrow {
-                right: 10%;
-                padding-right: 0;
-            }
 
-            .active .accordion-arrow {
-                position: absolute;
-                top: 56%;
-                right: 10%; /* offset the added padding-right */
-                width: 0;
-                height: 0;
-                margin-top: -10px;
-                border-top: 7px solid transparent;
-                border-bottom: 7px solid transparent;
-                border-left: 11px solid #BAC7CC;
-            }
+                .accordion-arrow {
+                    right: 16%;
+                    padding-right: 0;
+                }
 
-            .accordion-content {
-                padding-left: 5%;
-                align-items: center;
-                padding-right: 5%;
+                .active .accordion-arrow {
+                    position: absolute;
+                    top: 56%;
+                    right: 10%; /* offset the added padding-right */
+                    width: 0;
+                    height: 0;
+                    margin-top: -10px;
+                    border-top: 7px solid transparent;
+                    border-bottom: 7px solid transparent;
+                    border-left: 11px solid #BAC7CC;
+                }
+
+                .accordion-content {
+                    padding-left: 5%;
+                    align-items: center;
+                    padding-right: 5%;
+                }
             }
-        }
     </style>
 </head>
 <body>
+    <div class="wrapper">
     <div class="accordion">
         <div class="accordion-item">
             <div class="accordion-header"> hi, i'm felix &#128075; <div class="accordion-arrow"></div></div>
@@ -225,9 +243,7 @@
                     It's really fun (!) and I really think my background as a marketer would be great for this role.
                     <br /> <br />
                     <div style="overflow:auto;">
-                        <div style="float:right;width:150px;margin-left:20px;">
-                            <img src="felix.png" width="100%" />
-                        </div>
+                       
                         I always love to challenge myself – and this application is a wild example of that. I wanted to try something harder than start with pre-built codes, and although this site has a lot to improve, <strong>I hope I can do that one day soon.</strong>
                         </div>
                     </div>
@@ -253,6 +269,7 @@
             </div>
         </div>
     </div>
+        </div>
 
     <script>var accordionItems = document.querySelectorAll('.accordion-item');
 
@@ -280,9 +297,7 @@
         });</script>
 </body>
 <body>
-    <main>
-        <!-- Your website content goes here -->
-    </main>
+   
     <footer>
      
         <div class="footer-content">
