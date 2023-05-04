@@ -1,270 +1,357 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
 
-    <title>Felix</title>
+	<title>Felix</title>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			animation: fadeInAnimation ease 3s;
+			animation-iteration-count: 1;
+			animation-fill-mode: forwards;
+		}
+
+		@keyframes fadeInAnimation {
+			0% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+
+		html, body {
+			height: 100%;
+		}
+
+			body > footer {
+				position: sticky;
+			}
+		.wrapper {
+			overflow-y: scroll;
+			height: calc(100% - 65px);
+				
+			 }
+		footer {
+			/* Set the footer to be sticky at the bottom of the page */
+			position: static;
+			bottom: 0;
+			left: 0;
+			width: 100%;               
+			height: 50px;
+			min-height: 65px;
+			background-color: #f2f2f2;
+			font-family: Arial, sans-serif; /* set font to Arial */
+		}
+
+		.footer-content {
+			/* Center the content within the footer */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+		}
+
+			.footer-content a {
+				color: black; /* set link color to black */
+				font-weight: bold;
+				text-decoration: none; /* set link font to bold */
+			}
+
+        .image {
+            width: 125px
         }
 
-        html, body {
-            height: 100%;
-        }
 
-            body > footer {
-                position: sticky;
-            }
-        .wrapper {
-            overflow-y: scroll;
-            height: calc(100% - 50px);
-                
-             }
-        footer {
-            /* Set the footer to be sticky at the bottom of the page */
-            position: static;
-            bottom: 0;
-            left: 0;
-            width: 100%;               
-            height: 50px;
-            min-height: 50px;
-            background-color: #f2f2f2;
-            font-family: Arial, sans-serif; /* set font to Arial */
-        }
+		.column {
+			/* Set the width of each column to be 1/3 of the footer width */
+			width: calc(100% / 2);
+			text-align: center;
+		}
 
-        .footer-content {
-            /* Center the content within the footer */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
+		strong {
+			color: #05445e;
+		}
 
-            .footer-content a {
-                color: black; /* set link color to black */
-                font-weight: bold;
-                text-decoration: none; /* set link font to bold */
-            }
+		.accordion {
+			background-color: #ffffff;
+			width: 100%;
+			margin: 0 auto;
+			align-items: center;
+			padding-top: 8%;
+			padding-bottom: 8%;
+			
+		}
 
-
-        .column {
-            /* Set the width of each column to be 1/3 of the footer width */
-            width: calc(100% / 2);
-            text-align: center;
-        }
-
-        .p {
-            color: #05445e;
-        }
-
-        .accordion {
-            background-color: #ffffff;
+        table {
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            border-color: #ddd; /* Set the border color to light grey */
+            margin: 0 auto;
             width: 100%;
-            margin: 0 auto;
-            align-items: center;
-            padding-top: 8%;
-            padding-bottom: 8%;
-            
+            table-layout: fixed;
+        }
+
+        td {
+            vertical-align: top;
+            border: none;
+            width: 100%;
+            padding: 0 10px;
+            word-wrap: break-word;
+        }
+        
+        table tr:not(:first-child) td,
+        table tr:not(:first-child) td + td {
+            border-top: 2px solid #ddd; /* Add a top border to all rows except the first one */
+			padding-top: 5%;
+        }
+		.active .accordion-header {
+			color: #BAC7CC;
+		}
+
+			.active .accordion-header:hover {
+				color: #BAC7CC;
+			}
+
+		.active .accordion-arrow {
+			position: absolute;
+			top: 56%;
+			right: 0%; /* offset the added padding-right */
+			width: 0;
+			height: 0;
+			margin-top: -10px;
+			border-top: 7px solid transparent;
+			border-bottom: 7px solid transparent;
+			border-left: 11px solid #BAC7CC;
+		}
+
+        img {
+			width: 600px;
+        }
+
+        video {
+            width: 400px;
+			margin-right: 25%;
+        }
+		.accordion-item {
+			border: 0px solid #ccc;
+			background-color: #ffffff;
+			width: 90%;
+			margin: 0 auto;
+					   font-size: 18px;
+			font-family: arial;
+			font-weight: 500;
+			text-align: left;
+
+			line-height: 1.5;
+					}
+
+
+		.active .accordion-arrow:hover {
+			position: absolute;
+			top: 56%;
+			right: 0%; /* offset the added padding-right */
+			width: 0;
+			height: 0;
+			margin-top: -10px;
+			border-top: 7px solid transparent;
+			border-bottom: 7px solid transparent;
+			border-left: 11px solid #BAC7CC;
+		}
+
+     
+		.accordion-header {
+			background-color: #ffffff;
+			padding: 0;
+			width: 70%;
+			margin: 0 auto;
+			color: #2F7C99;
+			text-align: center;
+			font-size: 34px;
+			font-family: arial;
+			font-weight: 700;
+			cursor: pointer;
+			position: relative;
+		}
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
 
-        .active .accordion-header {
-            color: #BAC7CC;
-        }
+			.accordion-header:hover {
+				background-color: transparent;
+				color: #64BBDB;
+			}
 
-            .active .accordion-header:hover {
-                color: #BAC7CC;
-            }
+				.accordion-header:hover .accordion-arrow {
+					/* Your hover styles here */
+					border-left-color: #FFC107;
+				}
 
-        .active .accordion-arrow {
-            position: absolute;
-            top: 56%;
-            right: 0%; /* offset the added padding-right */
-            width: 0;
-            height: 0;
-            margin-top: -10px;
-            border-top: 7px solid transparent;
-            border-bottom: 7px solid transparent;
-            border-left: 11px solid #BAC7CC;
-        }
+		.active .accordion-header:hover .accordion-arrow {
+			/* Your hover styles here */
+			border-left-color: #BAC7CC;
+		}
 
-        .accordion-item {
-            border: 0px solid #ccc;
-            background-color: #ffffff;
-            width: 90%;
-            margin: 0 auto;
-                       font-size: 18px;
-            font-family: arial;
-            font-weight: 500;
-            text-align: left;
+		/* Add a class for the arrow and define its properties */
+		.accordion-arrow {
+			position: absolute;
+			top: 56%;
+			right: 0%; /* offset the added padding-right */
+						width: 0;
+			height: 0;
+			margin-top: -10px;
+			border-top: 7px solid transparent;
+			border-bottom: 7px solid transparent;
+			border-left: 11px solid #48A0C0;
+			transition: transform 0.4s ease;
+		}
 
-            line-height: 1.5;
-                    }
+		/* Rotate the arrow when the accordion is active */
+		.accordion-item.active .accordion-arrow {
+			transform: rotate(90deg);
+		}
 
-        .active .accordion-arrow:hover {
-            position: absolute;
-            top: 56%;
-            right: 0%; /* offset the added padding-right */
-            width: 0;
-            height: 0;
-            margin-top: -10px;
-            border-top: 7px solid transparent;
-            border-bottom: 7px solid transparent;
-            border-left: 11px solid #BAC7CC;
-        }
+		.accordion-content {
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.5s ease;
+			margin: 0 auto;
+			margin-bottom: 15px;
+			padding-left: 25%;
+			padding-right: 25%;
+		  			background-color: #ffffff;
+		}
 
-        .accordion-header {
-            background-color: #ffffff;
-            padding: 0;
-            width: 70%;
-            margin: 0 auto;
-            color: #2F7C99;
+          .button {
+           
+		border: 2px solid black;
+            border-radius: 0;
+            padding: 8px 18px;
+            background-color: white;
+            color: black;
             text-align: center;
-            font-size: 34px;
-            font-family: arial;
-            font-weight: 700;
-            cursor: pointer;
+            text-decoration: none;
             position: relative;
+            transition: background-color 0.3s ease;
         }
-
-            .accordion-header:hover {
-                background-color: transparent;
-                color: #64BBDB;
+      
+            .button:hover {
+                background-color: #2F7C99;
+                color: white !important; /* Set text color to white and override any other CSS rules */
+                border-color: #2F7C99;
             }
 
-                .accordion-header:hover .accordion-arrow {
-                    /* Your hover styles here */
-                    border-left-color: #FFC107;
-                }
-
-        .active .accordion-header:hover .accordion-arrow {
-            /* Your hover styles here */
-            border-left-color: #BAC7CC;
-        }
-
-        /* Add a class for the arrow and define its properties */
-        .accordion-arrow {
-            position: absolute;
-            top: 56%;
-            right: 0%; /* offset the added padding-right */
-                        width: 0;
-            height: 0;
-            margin-top: -10px;
-            border-top: 7px solid transparent;
-            border-bottom: 7px solid transparent;
-            border-left: 11px solid #48A0C0;
-            transition: transform 0.4s ease;
-        }
-
-        /* Rotate the arrow when the accordion is active */
-        .accordion-item.active .accordion-arrow {
-            transform: rotate(90deg);
-        }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-            margin: 0 auto;
-            margin-bottom: 10px;
-            padding-left: 14%;
-            padding-right: 14%;
-          
-            background-color: #ffffff;
-        }
-        @media only screen and (max-width: 600px) {
-            .accordion-arrow {
-                position: absolute;
-                top: 56%;
-                right: 20%; /* offset the added padding-right */
-                width: 0;
-                height: 0;
-                margin-top: -10px;
-                border-top: 7px solid transparent;
-                border-bottom: 7px solid transparent;
-                border-left: 11px solid #BAC7CC;
+            .button a {
+                color: black; /* Set the default color of the link text */
+				line-height: 1;
+				font-size: 1rem;
             }
 
-            @media only screen and (max-width: 600px) {
-                .accordion-arrow {
-                    position: absolute;
-                    top: 56%;
-                    right: 5%; /* offset the added padding-right */
-                    width: 0;
-                    height: 0;
-                    margin-top: -10px;
-                    border-top: 7px solid transparent;
-                    border-bottom: 7px solid transparent;
-                    border-left: 11px solid #BAC7CC;
-                }
+            .button:hover a {
+                color: white; /* Set the color of the link text on hover */
+            }
+        
+		@media only screen and (max-width: 600px) {
+			.accordion-arrow {
+				position: absolute;
+				top: 56%;
+				right: 5%; /* offset the added padding-right */
+				width: 0;
+				height: 0;
+				margin-top: -10px;
+				border-top: 7px solid transparent;
+				border-bottom: 7px solid transparent;
+				border-left: 11px solid #BAC7CC;
+			}
+		
+				.active .accordion-arrow {
+					position: absolute;
+					top: 56%;
+					right: 5%; /* offset the added padding-right */
+					width: 0;
+					height: 0;
+					margin-top: -10px;
+					border-top: 7px solid transparent;
+					border-bottom: 7px solid transparent;
+					border-left: 11px solid #BAC7CC;
+				}
 
-                .active .accordion-arrow {
-                    position: absolute;
-                    top: 56%;
-                    right: 5%; /* offset the added padding-right */
-                    width: 0;
-                    height: 0;
-                    margin-top: -10px;
-                    border-top: 7px solid transparent;
-                    border-bottom: 7px solid transparent;
-                    border-left: 11px solid #BAC7CC;
-                }
+				.accordion-content {
+					padding-left: 5%;
+					align-items: center;
+					padding-right: 5%;
+				}
 
-                .accordion-content {
-                    padding-left: 5%;
-                    align-items: center;
-                    padding-right: 5%;
-                }
+            img {
+                width: 80%;
+				margin: 0 auto;
+            }
+            video {
+                width: 80%;
+                margin: 0 auto;
+				margin-right: 15%;
+            }
 
-                
+								
+					@media only screen and (max-width: 768px) {
+						.body {
+							padding-top: 8%;
+						}
 
-                    @media only screen and (max-width: 768px) {
-                        .body {
-                            padding-top: 8%;
-                        }
+						.accordion-header {
+							background-color: #ffffff;
+							padding: 0;
+							width: 100%;
+							margin: 0 auto;
+							margin-top: 5%;
+							color: #2F7C99;
+							text-align: center;
+							font-size: 26px;
+							font-family: arial;
+							font-weight: 700;
+							cursor: pointer;
+							position: relative;
+						}
 
-                        .accordion-header {
-                            background-color: #ffffff;
-                            padding: 0;
-                            width: 100%;
+
+						.accordion-arrow {
+							right: 3%;
+							padding-right: 0;
+						}
+
+						.active .accordion-arrow {
+							position: absolute;
+							top: 56%;
+							right: 3%; /* offset the added padding-right */
+							width: 0;
+							height: 0;
+							margin-top: -10px;
+							border-top: 7px solid transparent;
+							border-bottom: 7px solid transparent;
+							border-left: 11px solid #BAC7CC;
+						}
+
+						.accordion-content {
+							padding-left: 5%;
+							align-items: center;
+							padding-right: 5%;
+						}
+
+                        img {
+                            width: 80%;
                             margin: 0 auto;
-                            margin-top: 5%;
-                            color: #2F7C99;
-                            text-align: center;
-                            font-size: 26px;
-                            font-family: arial;
-                            font-weight: 700;
-                            cursor: pointer;
-                            position: relative;
                         }
 
+                      
 
-                        .accordion-arrow {
-                            right: 14%;
-                            padding-right: 0;
-                        }
-
-                        .active .accordion-arrow {
-                            position: absolute;
-                            top: 56%;
-                            right: 1%; /* offset the added padding-right */
-                            width: 0;
-                            height: 0;
-                            margin-top: -10px;
-                            border-top: 7px solid transparent;
-                            border-bottom: 7px solid transparent;
-                            border-left: 11px solid #BAC7CC;
-                        }
-
-                        .accordion-content {
-                            padding-left: 5%;
-                            align-items: center;
-                            padding-right: 5%;
-                        }
                         @media only screen and (max-width: 400px) {
                             .accordion-arrow {
                                 position: absolute;
@@ -278,113 +365,170 @@
                                 border-left: 11px solid #BAC7CC;
                             }
 
-                            .active .accordion-arrow {
-                                position: absolute;
-                                top: 56%;
-                                right: 0%; /* offset the added padding-right */
-                                width: 0;
-                                height: 0;
-                                margin-top: -10px;
-                                border-top: 7px solid transparent;
-                                border-bottom: 7px solid transparent;
-                                border-left: 11px solid #BAC7CC;
-                            }
+                        
+                       							.active .accordion-arrow {
+								position: absolute;
+								top: 56%;
+								right: 0%; /* offset the added padding-right */
+								width: 0;
+								height: 0;
+								margin-top: -10px;
+								border-top: 7px solid transparent;
+								border-bottom: 7px solid transparent;
+								border-left: 11px solid #BAC7CC;
+							}
 
-                            .accordion-content {
-                                padding-left: 5%;
-                                align-items: center;
-                                padding-right: 5%;
+							.accordion-content {
+								padding-left: 5%;
+								align-items: center;
+								padding-right: 5%;
+							}
+                            img {
+                                width: 80%;
+                                margin: 0 auto;
                             }
-                        }
-                }
-            }
-}
+						}
+				}
+			}
 
-    </style>
+	   
+
+	</style>
 </head>
 <body>
-    <div class="wrapper">
-    <div class="accordion">
-        <div class="accordion-item">
-            <div class="accordion-header"> hi, i'm felix &#128075; <div class="accordion-arrow"></div></div>
-            <div class="accordion-content">
-                <p>
-                    My name is <strong><font color="#2F7C99">Felix</font></strong> and I have an idea. A great idea actually – I want to become a front end developer. But first, I need to understand the basics a bit more.
-                    <br /><br />
+	<div class="wrapper">
+		<img src="../img/felix-circle.png" class="center image" style="margin-top: 10%;margin-bottom: -4%;" />
+		<div class="accordion">
+			<div class="accordion-item">
+				<div class="accordion-header"> hi, i'm felix &#128075; <div class="accordion-arrow"></div></div>
+				<div class="accordion-content">
+					<p>
+						My name is <strong><font color="#2F7C99">Felix</font></strong> and I have an idea. A great idea actually – I want to become a front end developer. But first, I need to understand the basics a bit more.
+						<br /><br />
 
-                    The last 2 years I've worked with marketing producing graphical content. Before that, I graduated with a  bachelor in both advertising and psychology.
-                    While working closely with our web developers at my current job, an old passion of mine appeared – the interest of code and problem solving
-                    Working within marketing often means a tight schedule, and the time for "pixel perfect" is not always there for the developers. Understandable, but I know I should be able to help out, If I just knew a bit of coding..
-                    It's really fun (!) and I really think my background as a marketer would be great for this role.
-                    <br /> <br />
-                    <div style="overflow:auto;">
-                       
-                        I always love to challenge myself – and this application is a wild example of that. I wanted to try something harder than start with pre-built codes, and although this site has a lot to improve, <strong>I hope I can do that one day soon.</strong>
-                        </div>
-                    </div>
-</div>
+						The last 2 years I've worked with marketing producing graphical content. A typical week for me is a combination of graphic design (digital &Aacute; print, strategy and UX.  Before that, I graduated with a bachelor in both visual communication and psychology.
+						While working closely with our web developers at my current job, an old passion of mine appeared – the interest of code and problem solving
+						Working within marketing often means a tight schedule, and the time for "pixel perfect" is not always there for the developers. Understandable, but I know I should be able to help out, If I just knew a bit of coding..
+						It's really fun (!) and I really think my background as a marketer would be great for this role.
+						<br /> <br />
+							   <div style="overflow:auto;">
 
-        <div class="accordion-item">
-            <div class="accordion-header">why this course? <div class="accordion-arrow"></div></div>
-            <div class="accordion-content">
-                <p>
-                    Ever since I was a child, I've been fascinated by problem-solving. As I've grown older, my interest has evolved into a passion for web development and I’m definitely ready to take my first step into learning more about coding. The last 2 years I’ve worked with marketing and mostly I’ve produced graphical content.
-                   <br /><br /> I’ve worked close to our web developers in different projects and I see a huge opportunity for me to bridge the gap between development and content production. This course seems perfect for me to learn more, so I can continue to advance and learn more with a good understanding. I really think I have found an interest I would like to work with, and combining my graphical and marketing experience would be great.
-                </p>            </div>
-        </div>
+								   I always love to challenge myself – and this application is a wild example of that. I wanted to try something harder than start with pre-built codes, and although this site has a lot to improve, I somehow managed to do this alll by myself with a combination of Google and eagerness. :). <br><strong>My goal is definitely to understand this on a deeper level!</strong>
+							   </div>
+				</div>
+			</div>
 
-        <div class="accordion-item">
-            <div class="accordion-header"> felix + frontend = true <div class="accordion-arrow"></div></div>
-            <div class="accordion-content">
-                <p>
-                    I love web development and have a background in graphic design, so I think I would be a great fit for this position. <br /><br />One thing that sets me apart is my eagerness to learn and my determination not to give up when I encounter a problem.
+			<div class="accordion-item">
+				<div class="accordion-header">felix + frontend = true?<div class="accordion-arrow"></div></div>
+				<div class="accordion-content">
+					<p>
+						Ever since I was a child, I've been fascinated by problem-solving. As I've grown older, my interest has evolved into a passion for web development and I’m definitely ready to take my first step into learning more about coding. The last 2 years I’ve worked with marketing and mostly I’ve produced graphical content.
+						<br /><br /> I’ve worked close to our web developers in different projects and I see a huge opportunity for me to bridge the gap between development and content production. This course seems perfect for me to learn more, so I can continue to advance and learn more with a good understanding. I really think I have found an interest I would like to work with, and combining my graphical and marketing experience would be great.
+					</p>
+				</div>
+			</div>
 
-                    I'm used to try to find creative solutions to design challenges, and I know the web development is such a part of that. If I know more about do's and dont's in code, I think the efficiency will increase a lot working with code and design.
-                </p><strong><center>Hope to hear from you - have a good day!</center></strong>
-            </div>
-        </div>
-    </div>
-        </div>
+			<div class="accordion-item">
+				<div class="accordion-header"> portfolio <div class="accordion-arrow"></div></div>
+				<div class="accordion-content">
 
-    <script>var accordionItems = document.querySelectorAll('.accordion-item');
+					<table>
+						<tr>
+							<td>
 
-        accordionItems.forEach(function (item) {
-            var header = item.querySelector('.accordion-header');
-            var content = item.querySelector('.accordion-content');
+								<p>
+									<em>A little "brasklapp"..</em> <br />
+									I can't share so much of the content I've created for our customers', but I hope this website and some of my portfolio will give a good understanding of my design and branding thinking.
+								</p>
 
-            header.addEventListener('click', function () {
-                // close all other accordions
-                accordionItems.forEach(function (otherItem) {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                        otherItem.querySelector('.accordion-content').style.maxHeight = '0';
-                    }
-                });
+							</td>
 
-                // toggle active class and maxHeight
-                item.classList.toggle('active');
-                if (item.classList.contains('active')) {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                } else {
-                    content.style.maxHeight = '0';
-                }
-            });
-        });</script>
-</body>
-<body>
-   
-    <footer>
-     
-        <div class="footer-content">
-            <div class="column">
-                <p><a href="mailto:felix@adlen.nu">felix@adlen.nu</a></p>
-            </div>
-            <div class="column">
-                <p>Felix Adlén</p>
-            </div>
+						</tr>
+						<tr>
+							<td>
+								<img src="../img/beer-bottle600px.png" />
+								<br /><strong style="text-align: center;">#mockup #concept #copy</strong>
+								<br />
+								<p><em>"Our IPA tastes like IPA" - Concept.</em> <br />In a world with so much impressions everywhere you go, sometimes the simplicity is all you need. </p>
 
-        </div>
-    </footer>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<video autoplay muted playsinline width="50%" loop>
+									<source src="../img/fepvideo.mp4" type="video/mp4" />
+								</video>
+								<br /><strong style="text-align: center;">#work #ux #copy</strong>
+								<br />
+								<p><em>"I love my insurance company"</em> <br />A part of a project I was involved with. Creating a digital experience for horse insurances, making it fun, fast and simple to become a customer. </p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="../img/boring.png" />
+								<br /><strong style="text-align: center;">#mockup #concept #copy</strong>
+								<br />
+								<p><em>"Boring brochure" - Concept.</em> <br />Just a brochure I made for fun. Simple, but with a message that draws attention. </p>
+							</td>
+
+						</tr>
+						<tr>
+							<td>
+								<img src="../img/conceptbeer.png" />
+								<br /><strong style="text-align: center;">#mockup #concept #copy</strong>
+								<br />
+								<p><em>"En helt vanlig öl" - Concept.</em> <br />A concept I made for storytelling purpose, by using the description text on the back of the can to create the product purpose in an interesting way. </p>
+							</td>
+
+						</tr>
+
+					</table>
+				</div>
+			</div>
+		</div>
+		</div>
+
+	<script>var accordionItems = document.querySelectorAll('.accordion-item');
+
+		accordionItems.forEach(function (item) {
+			var header = item.querySelector('.accordion-header');
+			var content = item.querySelector('.accordion-content');
+
+			header.addEventListener('click', function () {
+				// close all other accordions
+				accordionItems.forEach(function (otherItem) {
+					if (otherItem !== item && otherItem.classList.contains('active')) {
+						otherItem.classList.remove('active');
+						otherItem.querySelector('.accordion-content').style.maxHeight = '0';
+					}
+				});
+
+				// toggle active class and maxHeight
+				item.classList.toggle('active');
+				if (item.classList.contains('active')) {
+					content.style.maxHeight = content.scrollHeight + 'px';
+				} else {
+					content.style.maxHeight = '0';
+				}
+			});
+		});</script>
+
+
+	<footer>
+	 
+		<div class="footer-content">
+			<div class="column">
+				<p><a href="tel:0708722412" style="color: darkblue;">0708722412</a></p>
+			</div>
+			<div class="column">
+
+				<button class="button"><a href="mailto:felix@adlen.nu">felix@adlen.nu</a> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+	<path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+</svg></button>
+			</div>
+
+		</div>
+	</footer>
 
  
 </body>
